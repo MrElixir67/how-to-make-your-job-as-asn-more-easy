@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>e-Kinerja Bookmarklets</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    h1 { font-size: 1.8rem; margin-bottom: 8px; color: #f0f6fc; }
+    p  { color: #8b949e; margin-bottom: 24px; line-height: 1.6; }
+    .cards { display: flex; flex-direction: column; gap: 16px; }
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .card h2 { font-size: 1.1rem; margin-bottom: 6px; color: #f0f6fc; }
+    .card p  { font-size: 0.9rem; margin-bottom: 12px; }
+    .bookmarklet {
+      display: inline-block;
+      background: #238636;
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: move;
+      user-select: none;
+    }
+    .bookmarklet:hover { background: #2ea043; }
+    .note {
+      background: #1c2128;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 24px;
+      font-size: 0.9rem;
+      color: #8b949e;
+    }
+    .note code {
+      background: #21262d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #f0f6fc;
+    }
+    hr { border: none; border-top: 1px solid #30363d; margin: 24px 0; }
+    a { color: #58a6ff; }
+    .subtitle { color: #8b949e; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+
+  <h1>e-Kinerja Bookmarklets</h1>
+  <p class="subtitle">
+    Drag a bookmarklet button to your bookmarks bar, then click it when you are on the matching e-Kinerja page.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <h2>Hapus Semua Penilaian</h2>
+      <p>Delete all assessment feedback at once. Auto-accepts confirmation dialog.</p>
+      <a class="bookmarklet" href="javascript:window.confirm=()=>true;(async()=>{let d=ms=>new Promise(r=>setTimeout(r,ms));let b=[...document.querySelectorAll('button')].filter(b=>b.textContent.trim()==='Hapus');console.log('Tombol Hapus ditemukan:',b.length);for(let e of b){e.click();await d(800);console.log('Terhapus')}console.log('Semua penilaian berhasil dihapus!')})();">Hapus Penilaian</a>
+    </div>
+
+    <div class="card">
+      <h2>Hapus Rencana Aksi</h2>
+      <p>Delete all action plans at once. Auto-accepts confirmation dialog.</p>
+      <a class="bookmarklet" href="javascript:window.confirm=()=>true;(async()=>{let d=ms=>new Promise(r=>setTimeout(r,ms));let b=[...document.querySelectorAll('button')].filter(b=>b.textContent.trim()==='Hapus');console.log('Tombol Hapus ditemukan:',b.length);for(let e of b){e.click();await d(800);console.log('Terhapus')}console.log('Semua rencana aksi berhasil dihapus!')})();">Hapus Rencana Aksi</a>
+    </div>
+
+    <div class="card">
+      <h2>Isi Penilaian</h2>
+      <p>Auto-fill assessment form. Fills selects with highest option and number inputs with 100.</p>
+      <a class="bookmarklet" href="javascript:(async()=>{let d=ms=>new Promise(r=>setTimeout(r,ms));let s=[...document.querySelectorAll('select')];console.log('Form select ditemukan:',s.length);for(let e of s){let o=[...e.options].filter(o=>o.value&&o.value!=='');if(o.length>0){let b=o[o.length-1];e.value=b.value;e.dispatchEvent(new Event('change',{bubbles:true}));await d(200);console.log('Terisi:',b.textContent.trim())}}let n=[...document.querySelectorAll('input[type=\"number\"]')];for(let e of n){e.value=100;e.dispatchEvent(new Event('input',{bubbles:true}));await d(100)}console.log('Form penilaian berhasil diisi!');console.log('Review dulu sebelum submit ya Bos!')})();">Isi Penilaian</a>
+    </div>
+
+    <div class="card">
+      <h2>Isi Realisasi</h2>
+      <p>Auto-fill realization form with quantity 100, quality 100, status selesai.</p>
+      <a class="bookmarklet" href="javascript:(async()=>{let d=ms=>new Promise(r=>setTimeout(r,ms));let n=[...document.querySelectorAll('input[type=\"number\"]')];let i=0;for(let e of n){if(i===0)e.value=100;else if(i===1)e.value=100;i++;e.dispatchEvent(new Event('input',{bubbles:true}));await d(150)}console.log('Kuantitas & Kualitas terisi');let r=[...document.querySelectorAll('input[type=\"radio\"],input[type=\"checkbox\"]')].find(el=>el.value&&el.value.toLowerCase().includes('selesai'));if(r){r.checked=true;r.dispatchEvent(new Event('change',{bubbles:true}));console.log('Status: Selesai')}console.log('Form realisasi berhasil diisi!');console.log('Review dulu sebelum submit ya Bos!')})();">Isi Realisasi</a>
+    </div>
+
+    <div class="card">
+      <h2>Isi Rencana Aksi</h2>
+      <p>Auto-fill action plan form. Adjust the TUGAS value in the source file first.</p>
+      <a class="bookmarklet" href="javascript:(async()=>{let d=ms=>new Promise(r=>setTimeout(r,ms));let t=[...document.querySelectorAll('input[type=\"text\"],textarea')];for(let e of t){if(!e.value){e.value='Uraian tugas pejabat/ASN di sini';e.dispatchEvent(new Event('input',{bubbles:true}));await d(150);console.log('Tugas terisi');break}}let n=[...document.querySelectorAll('input[type=\"number\"]')];let i=0;for(let e of n){if(i===0&&!e.value)e.value=1;if(i===1&&!e.value)e.value=100;i++;e.dispatchEvent(new Event('input',{bubbles:true}));await d(100)}console.log('Target kuantitas & kualitas terisi');console.log('Form rencana aksi berhasil diisi!');console.log('Review dulu sebelum submit ya Bos!')})();">Isi Rencana Aksi</a>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>How to install:</strong> Drag any button above to your browser bookmarks bar.
+    Then navigate to the matching e-Kinerja page and click the bookmark.
+    <br><br>
+    <strong>Console method:</strong> Open <code>src/</code> folder, copy the .js file content,
+    paste into browser console (F12), and press Enter.
+    <br><br>
+    <strong>Warning:</strong> Always review form data before submitting.
+    Use at your own risk.
+  </div>
+
+  <hr>
+  <p style="text-align:center; font-size: 0.85rem;">
+    <a href="https://github.com/MrElixir67/how-to-make-your-job-as-asn-more-easy">GitHub Repository</a> &mdash; MIT License
+  </p>
+
+</body>
+</html>
