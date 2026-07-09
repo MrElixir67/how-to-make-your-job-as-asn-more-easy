@@ -25,10 +25,14 @@ A collection of JavaScript bookmarklets to automate repetitive tasks on e-Kinerj
 ## How to Use
 
 1. Open the e-Kinerja page you want to automate.
-2. Open browser developer tools (F12 > Console tab).
-3. Open the script file you need from the `src` folder.
-4. Copy the entire code.
-5. Paste it into the browser console and press Enter.
+2. Open browser developer tools:
+   - Press **F12** on your keyboard.
+   - If F12 does not work, press **Ctrl + Shift + I**.
+3. Go to the **Console** tab.
+4. If this is your first time using the console, type **"allow pasting"** and press Enter. This enables you to paste code into the console.
+5. Open the script file you need from the `src` folder.
+6. Copy the entire code.
+7. Paste it into the browser console and press Enter.
 
 Watch the automation do its work.
 
@@ -42,7 +46,6 @@ File structure:
 how-to-make-your-job-as-asn-more-easy/
   LICENSE
   README.md
-  index.html
   src/
     hapus-semua-penilaian.js
     hapus-rencana-aksi.js
