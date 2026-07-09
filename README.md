@@ -2,25 +2,7 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-A collection of JavaScript bookmarklets to automate repetitive tasks on e-Kinerja. Stop clicking the same buttons over and over.
-
-## Table of Contents
-
-- [Features](#features)
-- [How to Use](#how-to-use)
-- [Scripts](#scripts)
-- [Warning](#warning)
-- [License](#license)
-
-## Features
-
-| Script | Function |
-|--------|----------|
-| hapus-semua-penilaian | Delete all assessments at once |
-| hapus-rencana-aksi | Delete all action plans at once |
-| isi-penilaian | Auto-fill assessment form with maximum score |
-| isi-realisasi | Auto-fill realization form (quantity, quality, status) |
-| isi-rencana-aksi | Auto-fill action plan form |
+JavaScript bookmarklets to automate e-Kinerja tasks.
 
 ## How to Use
 
@@ -34,31 +16,15 @@ A collection of JavaScript bookmarklets to automate repetitive tasks on e-Kinerj
 6. Copy the entire code.
 7. Paste it into the browser console and press Enter.
 
-Watch the automation do its work.
-
 ## Scripts
 
-All scripts are located in the `src` folder. Each file is a standalone JavaScript that runs in the browser console.
-
-File structure:
-
-```
-how-to-make-your-job-as-asn-more-easy/
-  LICENSE
-  README.md
-  src/
-    hapus-semua-penilaian.js
-    hapus-rencana-aksi.js
-    isi-penilaian.js
-    isi-realisasi.js
-    isi-rencana-aksi.js
-```
-
-## Warning
-
-- These scripts interact directly with the e-Kinerja web interface. Review the results before submitting.
-- The isi-rencana-aksi.js and isi-penilaian.js scripts use placeholder values. Change the configuration section at the top of the file before running.
-- Use at your own risk. The author is not responsible for incorrect data submission.
+| File | Description |
+|------|-------------|
+| hapus-semua-penilaian.js | Delete all assessments at once |
+| hapus-rencana-aksi.js | Coming soon |
+| isi-penilaian.js | Coming soon |
+| isi-realisasi.js | Coming soon |
+| isi-rencana-aksi.js | Coming soon |
 
 ## License
 
